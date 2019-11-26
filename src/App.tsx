@@ -1,8 +1,11 @@
 import React from 'react';
 import './styles.scss';
+import Header from './components/Header/Header';
 
-const App: React.FC = () => {
-  return <div className="App"></div>;
-};
+const App = () => (
+  <div className="App">
+    <Header />
+  </div>
+);
 
 export default App;
