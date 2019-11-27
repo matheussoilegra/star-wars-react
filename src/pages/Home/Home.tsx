@@ -1,7 +1,7 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
-import { FilmModel } from '../../models/film';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { FilmModel } from '../../models/FilmModel';
+import { BrowserRouter, Switch, Link } from 'react-router-dom';
 import './Home.scss';
 
 function Film() {
