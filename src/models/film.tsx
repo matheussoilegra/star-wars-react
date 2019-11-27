@@ -1,4 +1,4 @@
-export interface Film {
+export interface FilmModel {
   results: any;
   title: string;
   episode_id: number;
