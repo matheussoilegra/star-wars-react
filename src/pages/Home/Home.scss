@@ -12,7 +12,7 @@
 .films-list {
   @include positioning(flex, column, center, space-between);
 
-  border-radius: 10px;
+  border-radius: $border-radius;
   background: $bg-list;
 
   .film-title {

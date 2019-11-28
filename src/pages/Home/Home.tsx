@@ -12,7 +12,7 @@ function Film() {
   const [films, setFilm] = useState([]);
 
   const loadFilm = async () => {
-    const response = await api.get('films/');
+    const response = await api.get(`films/`);
     const { results } = response.data;
     setFilm(results);
   };
