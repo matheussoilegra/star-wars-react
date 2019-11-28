@@ -1,0 +1,67 @@
+@mixin reset {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin font-general {
+  font-family: 'Days One', cursive;
+}
+
+@mixin bg-general {
+  background-image: url('./assets/img/bg-image.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+@mixin font($font-size, $font-color, $bg-color) {
+  font-size: $font-size;
+  color: $font-color;
+  background: $bg-color;
+}
+
+@mixin positioning($display, $direction, $align, $justify) {
+  display: $display;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin link($text-decoration, $list-style) {
+  text-decoration: $text-decoration;
+  list-style: $list-style;
+}
+
+@mixin lightsaber($color) {
+  background: mix($color, $white-lgsaber, 10%);
+  box-shadow: $color 0px 0px 0px 2px;
+  box-shadow: $color 0px 0px 20px 2px;
+  text-shadow: $color 0px 0px 6px, $color 0px 0px 10px;
+}
+
+@mixin lightsaber-hover($color) {
+  background: mix($color, $white-lgsaber, 10%);
+  box-shadow: $color 0px 0px 0px 2px;
+
+  &:hover {
+    box-shadow: $color 0px 0px 20px 2px;
+    text-shadow: $color 0px 0px 6px, $color 0px 0px 10px;
+  }
+}
+
+@mixin lightsaber-title($color) {
+  &:hover {
+    text-shadow: $color 0px 0px 6px, $color 0px 0px 10px;
+  }
+}
+
+@mixin lightsaber-search($color) {
+  background: mix($color, $white-lgsaber, 10%);
+  box-shadow: $color 0px 0px 0px 2px;
+  box-shadow: $color 0px 0px 20px 2px;
+}
+
+@mixin lightsaber-page($color) {
+  text-shadow: $color 0px 0px 6px, $color 0px 0px 10px;
+}

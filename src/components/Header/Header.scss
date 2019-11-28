@@ -1,3 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Days+One');
+@import '../../scss/base';
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+* {
+  @include reset;
+  @include font-general;
+  @include link(none, none);
+}
+
 .header {
-  background: green;
+  @include positioning(flex, column, center, space-between);
+
+  .title {
+    @include lightsaber-title($yellow-lgsaber);
+
+    padding: 0.5rem;
+    font-size: 4rem;
+    color: #000;
+    text-shadow: -1px 0 #ff0, 0 1px #ff0, 1px 0 #ff0, 0 -1px #ff0;
+    text-align: center;
+  }
+
+  .nav {
+    color: white;
+
+    .list {
+      @include positioning(flex, row, center, space-between);
+
+      padding: 0.5rem;
+
+      .item {
+        padding: 0.5rem;
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  }
 }

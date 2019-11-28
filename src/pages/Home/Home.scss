@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Days+One');
+@import '../../scss/base';
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+* {
+  @include reset;
+  @include font-general;
+  @include link(none, none);
+}
+
+.films-list {
+  @include positioning(flex, column, center, space-between);
+
+  border-radius: 10px;
+  background: $bg-list;
+
+  .film-title {
+    font-size: 1.75em;
+    line-height: 1.25em;
+    padding: 0;
+    margin: 16px 0px;
+    text-align: center;
+    color: black;
+
+    &:hover {
+      text-shadow: -1px 0 #ff0, 0 1px #ff0, 1px 0 #ff0, 0 -1px #ff0;
+      padding: 0px 16px 0px 0px;
+      text-decoration: underline;
+    }
+  }
+}

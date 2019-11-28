@@ -18,11 +18,11 @@ function Film() {
   };
 
   return (
-    <ul>
+    <ul className="films-list">
       {films.map((film: FilmModel) => (
-        <li key={film.episode_id}>
+        <li key={film.episode_id} className="film-title">
           <Link to={`/films/${film.episode_id}`}>
-            Episode {film.episode_id} - {film.title}
+            {`Episode ${film.episode_id} - ${film.title}`}
           </Link>
         </li>
       ))}

@@ -1,3 +1,13 @@
 @import './scss/base';
 @import './scss/mixins';
 @import './scss/variables';
+
+body {
+  background-image: url('../src/assets/img/bg-img.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
