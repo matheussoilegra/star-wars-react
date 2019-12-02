@@ -17,41 +17,47 @@ export default function FilmDetails(props: any) {
     producer: '',
     director: '',
     release_date: '',
-    characters: [
-      {
-        name: '',
-        gender: ''
-      }
-    ],
+    characters: [],
     planets: [],
     starships: [],
     vehicles: [],
     species: []
   });
 
-  const [characters, setCharacters] = useState();
+  const [characters, setCharacters] = useState([]);
 
   const loadDetails = async () => {
     const response = await api.get(`films/`);
     const { results } = response.data;
-    console.log(results);
 
     const films = results.find((film: FilmModel) => {
       return `${film.episode_id}` === `${props.match.params.id}`;
     });
-
     setDetails(films);
   };
 
   const loadCharacters = async () => {
     const response = await api.get(`people/`);
     const { results } = response.data;
+    // console.log(results);
 
     const characters = results.map((character: CharacterModel) => {
-      console.log(character);
-      return `${character.name}`;
-    });
+      console.log(` character: ${character.films}`);
+      console.log(` character: ${character.name}`);
+      console.log(` path: ${window.location.pathname}`);
+      console.log(` url: https://swapi.co/api/${window.location.pathname}`);
+      console.log(
+        `${character.films.toString().includes(`${window.location.pathname}`)}`
+      );
+      console.log('-----------------------');
 
+      return (
+        `${character.films
+          .toString()
+          .includes(`${window.location.pathname}`)}` === 'true' &&
+        `${character.name}`
+      );
+    });
     setCharacters(characters);
   };
 
@@ -62,7 +68,6 @@ export default function FilmDetails(props: any) {
       <li>{`Director: ${details.director}`}</li>
       <li>{`Release_date: ${details.release_date}`}</li>
       <li>{`Characters: ${characters}`}</li>
-
       <li>
         <Link to={`${details.episode_id}/people/`}>Characters</Link>
       </li>
