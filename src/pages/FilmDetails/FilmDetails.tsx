@@ -41,23 +41,15 @@ export default function FilmDetails(props: any) {
     const { results } = response.data;
     // console.log(results);
 
-    const characters = results.map((character: CharacterModel) => {
-      console.log(` character: ${character.films}`);
-      console.log(` character: ${character.name}`);
-      console.log(` path: ${window.location.pathname}`);
-      console.log(` url: https://swapi.co/api/${window.location.pathname}`);
-      console.log(
-        `${character.films.toString().includes(`${window.location.pathname}`)}`
-      );
-      console.log('-----------------------');
-
-      return (
-        `${character.films
-          .toString()
-          .includes(`${window.location.pathname}`)}` === 'true' &&
-        `${character.name}`
-      );
+    const characters = results.filter((character: CharacterModel) => {
+      // console.log('character', character.name);
+      if (character.films.toString().includes(`${window.location.pathname}`)) {
+        return `${character.name}`;
+      }
     });
+
+    console.log('aaaa', characters);
+
     setCharacters(characters);
   };
 
