@@ -39,16 +39,12 @@ export default function FilmDetails(props: any) {
   const loadCharacters = async () => {
     const response = await api.get(`people/`);
     const { results } = response.data;
-    // console.log(results);
 
     const characters = results.filter((character: CharacterModel) => {
-      // console.log('character', character.name);
       if (character.films.toString().includes(`${window.location.pathname}`)) {
         return `${character.name}`;
       }
     });
-
-    console.log('aaaa', characters);
 
     setCharacters(characters);
   };
@@ -59,7 +55,14 @@ export default function FilmDetails(props: any) {
       <li>{`Producer: ${details.producer}`}</li>
       <li>{`Director: ${details.director}`}</li>
       <li>{`Release_date: ${details.release_date}`}</li>
-      <li>{`Characters: ${characters}`}</li>
+      <ul>
+        {characters.map((character: CharacterModel) => (
+          <li key={character.name} className="character-name">
+            {`${character.name}`}
+          </li>
+        ))}
+      </ul>
+
       <li>
         <Link to={`${details.episode_id}/people/`}>Characters</Link>
       </li>
