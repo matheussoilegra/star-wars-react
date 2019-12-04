@@ -64,35 +64,29 @@ export default function FilmDetails(props: any) {
   }, [charactersDetails]);
 
   return (
-    <div>
-      <ul>
+    <div className="characters-details">
+      <ul className="characters-list">
         {characters &&
           characters.map((character: CharacterModel) => (
-            <li key={character.name}>{character.name}</li>
+            <div className="character-details" key={character.url}>
+              <li className="character-item" key={character.name}>
+                {typeof character.name !== 'undefined'
+                  ? 'Name: ' + character.name
+                  : ''}
+              </li>
+              <li className="character-item" key={character.birth_year}>
+                {typeof character.birth_year !== 'undefined'
+                  ? 'Birth year: ' + character.birth_year
+                  : ''}
+              </li>
+              <li className="character-item" key={character.gender}>
+                {typeof character.gender !== 'undefined'
+                  ? 'Gender: ' + character.gender
+                  : ''}
+              </li>
+            </div>
           ))}
       </ul>
     </div>
-    // <ul className="film-details">
-    //   <li>{`Episode ${details.episode_id} - ${details.title}`}</li>
-    //   <li>{`Producer: ${details.producer}`}</li>
-    //   <li>{`Director: ${details.director}`}</li>
-    //   <li>{`Release_date: ${details.release_date}`}</li>
-    //   <li>{}</li>
-    //   <li>
-    //     <Link to={`${details.episode_id}/people/`}>Characters</Link>
-    //   </li>
-    //   <li>
-    //     <Link to={`${details.episode_id}/planets/`}>Planets</Link>
-    //   </li>
-    //   <li>
-    //     <Link to={`${details.episode_id}/species/`}>Species</Link>
-    //   </li>
-    //   <li>
-    //     <Link to={`${details.episode_id}/vehicles/`}>Vehicles</Link>
-    //   </li>
-    //   <li>
-    //     <Link to={`${details.episode_id}/starships/`}>Starships</Link>
-    //   </li>
-    // </ul>
   );
 }
