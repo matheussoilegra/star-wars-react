@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.scss';
+import { Link } from 'react-router-dom';
 
 const Header = () => (
   <header className="header">
@@ -17,5 +18,4 @@ const Header = () => (
     </nav>
   </header>
 );
-
 export default Header;
